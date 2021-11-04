@@ -1,54 +1,36 @@
 import React, { Component, useState } from "react";
-import Input from "./components/input/Input";
-import ProductList from "./components/productList/ProductList";
-import Random from "./components/randomNumber/Random";
+import "bootstrap/dist/css/bootstrap.css";
+import UsersTable from "./components/usersTable/UsersTable";
 
 const App = () => {
-  const [products, setProducts] = useState([
+  const [users, setUsers] = useState([
     {
       id: 1,
-      name: "Coat",
-      color: "red",
-      description: "this is Coat!!!",
+      firstName: "مهرداد",
+      lastName: "منوری",
+      national_id: "0925827381",
+      age: "20",
     },
     {
       id: 2,
-      name: "Hat",
-      color: "Blue",
-      description: "this is Hat!!!",
-    },
-    {
-      id: 3,
-      name: "Pants",
-      color: "yellow",
-      description: "this is Pants!!!",
-    },
-    {
-      id: 4,
-      name: "Gloves",
-      color: "orange",
-      description: "this is Gloves!!!",
-    },
-    {
-      id: 5,
-      name: "jacket",
-      color: "black",
-      description: "this is Gloves!!!",
+      firstName: "صادق",
+      lastName: "احمدی",
+      national_id: "0954769321",
+      age: "18",
     },
   ]);
 
-  const addOneHandler = (id) => {
-    // const filtred = products.find((p) => (p.id = id));
-    // console.log(filtred);
-  };
+  const [headers, setHeaders] = useState({
+    index: "ردیف",
+    firstName: "نام",
+    lastName: "نام خانوادگی",
+    national_id: "کد ملی",
+    age: "سن"
+  });
 
-  return (
-    <div>
-      {/* <ProductList products={products} onAddOne={addOneHandler} /> */}
-      {/* <Input/> */}
-      <Random/>
-    </div>
-  );
+  return <div>
+    <UsersTable users={users} headers={headers} />
+  </div>;
 };
 
 export default App;

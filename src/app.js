@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import Input from "./components/input/Input";
 import ProductList from "./components/productList/ProductList";
+import Random from "./components/randomNumber/Random";
 
 const App = () => {
   const [products, setProducts] = useState([
@@ -44,7 +45,8 @@ const App = () => {
   return (
     <div>
       {/* <ProductList products={products} onAddOne={addOneHandler} /> */}
-      <Input/>
+      {/* <Input/> */}
+      <Random/>
     </div>
   );
 };

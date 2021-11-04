@@ -12,6 +12,10 @@ function ProductList(props) {
             color={p.color}
             description={p.description}
             index={i}
+            id={p.id}
+            onAddOne={p.onAddOne()}
+            // onAddTwo={p.onAddTwo()}
+            // onAddTree={p.onAddTree()}
           />
         );
       })}

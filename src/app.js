@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import Input from "./components/input/Input";
 import ProductList from "./components/productList/ProductList";
 
 const App = () => {
@@ -34,10 +35,16 @@ const App = () => {
       description: "this is Gloves!!!",
     },
   ]);
-  console.log(products);
+
+  const addOneHandler = (id) => {
+    // const filtred = products.find((p) => (p.id = id));
+    // console.log(filtred);
+  };
+
   return (
     <div>
-      <ProductList products={products} />
+      {/* <ProductList products={products} onAddOne={addOneHandler} /> */}
+      <Input/>
     </div>
   );
 };

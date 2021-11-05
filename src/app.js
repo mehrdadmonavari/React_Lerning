@@ -1,7 +1,7 @@
 import { useState } from "react/cjs/react.development";
 import ProductList from "./components/productList/ProductList";
-import styles from "./App.module.css";
 import ProductHeader from "./components/productHeader/ProductHeader";
+import styles from "./App.module.css";
 
 const App = () => {
   const [products, setProducts] = useState([
@@ -11,6 +11,7 @@ const App = () => {
       price: "200$",
       color: "red",
       description: "this is coat",
+      quantity: 1,
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ const App = () => {
       price: "300$",
       color: "red",
       description: "this is coat",
+      quantity: 1,
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ const App = () => {
       price: "450$",
       color: "red",
       description: "this is coat",
+      quantity: 1,
     },
     {
       id: 4,
@@ -32,6 +35,7 @@ const App = () => {
       price: "180$",
       color: "red",
       description: "this is coat",
+      quantity: 1,
     },
     {
       id: 5,
@@ -39,26 +43,54 @@ const App = () => {
       price: "180$",
       color: "red",
       description: "this is coat",
+      quantity: 1,
     },
   ]);
 
   const deleteHandler = (id) => {
     const filtredProduct = products.filter((product) => {
       return product.id !== id;
-    })
+    });
     setProducts(filtredProduct);
-  }
+  };
+
+  const incrementHandler = (id) => {
+    const index = products.findIndex((product) => product.id === id);
+    const product = products[index];
+    product.quantity++;
+    const productsArr = [...products];
+    productsArr[index] = product;
+    setProducts(productsArr);
+  };
+
+  const decrementHandler = (id) => {
+    const index = products.findIndex((product) => product.id === id);
+    const product = products[index];
+    if (product.quantity !== 1) {
+      product.quantity--;
+      const productsArr = [...products];
+      productsArr[index] = product;
+      setProducts(productsArr);
+    } else {
+      deleteHandler(id);
+    }
+  };
 
   return (
     <div className="container-fluid">
-    <div className="card m-5">
-      <div className="card-header">
-        <ProductHeader />
+      <div className="card m-5">
+        <div className="card-header">
+          <ProductHeader count={products.length} />
+        </div>
+        <div className="card-body">
+          <ProductList
+            products={products}
+            onDelete={deleteHandler}
+            onIncrement={incrementHandler}
+            onDecrement={decrementHandler}
+          />
+        </div>
       </div>
-      <div className="card-body">
-        <ProductList products={products} onDelete={deleteHandler} />
-      </div>
-    </div>
     </div>
   );
 };

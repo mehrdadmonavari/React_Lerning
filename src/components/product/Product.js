@@ -1,10 +1,21 @@
 import styles from "./Product.module.css";
+import { BiTrash } from "react-icons/bi";
 
 const Product = (props) => {
-  const { id, name, price, color, description } = props.product;
+  const { id, name, price, color, description, quantity } = props.product;
+
+  const decrementView = () => {
+    return <span>{quantity === 1 ? <BiTrash className="mb-1"/> : "-"}</span>;
+  };
+
   return (
     <div className="d-flex justify-content-between p-3 my-2 border rounded-lg">
-      <div className={styles.vertical + " d-flex justify-content-between align-items-center text-center"}>
+      <div
+        className={
+          styles.vertical +
+          " d-flex justify-content-between align-items-center text-center"
+        }
+      >
         <div className={styles.f_16 + " font-weight-bold"}>{props.index} .</div>
         <h5 className="my-0 ml-3 mr-4">{name}</h5>
         <div className="mx-3">price: {price}</div>
@@ -12,9 +23,27 @@ const Product = (props) => {
         <div className="mx-3">color: {description}</div>
       </div>
       <div className="d-flex justify-content-end align-items-center">
-        <button className="btn btn-outline-info mx-1">+</button>
-        <button className="btn btn-outline-info mx-1">-</button>
-        <button className="btn btn-outline-danger mx-1" onClick={() => props.onDelete(id)}>delete</button>
+        <span className="badge badge-pill badge-secondary mx-3 py-2 px-2">
+          {quantity}
+        </span>
+        <button
+          className="btn btn-outline-info font-weight-bold mx-1"
+          onClick={() => props.onIncrement(id)}
+        >
+          +
+        </button>
+        <button
+          className={"btn " + (quantity === 1 ? "btn-outline-danger" : "btn-outline-info px-3") + " mx-1 font-weight-bold"}
+          onClick={() => props.onDecrement(id)}
+        >
+          {decrementView()}
+        </button>
+        <button
+          className="btn btn-outline-danger mx-1"
+          onClick={() => props.onDelete(id)}
+        >
+          delete
+        </button>
       </div>
     </div>
   );

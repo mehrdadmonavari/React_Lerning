@@ -1,36 +1,51 @@
-import React, { Component, useState } from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import UsersTable from "./components/usersTable/UsersTable";
+import { useState } from "react/cjs/react.development";
+import ProductList from "./components/productList/ProductList";
+import styles from "./App.module.css"
 
 const App = () => {
-  const [users, setUsers] = useState([
+  const [products, setProducts] = useState([
     {
       id: 1,
-      firstName: "مهرداد",
-      lastName: "منوری",
-      national_id: "0925827381",
-      age: "20",
+      name: "Coat",
+      price: "200$",
+      color: "red",
+      description: "this is coat"
     },
     {
       id: 2,
-      firstName: "صادق",
-      lastName: "احمدی",
-      national_id: "0954769321",
-      age: "18",
+      name: "Hat",
+      price: "300$",
+      color: "red",
+      description: "this is coat"
     },
-  ]);
+    {
+      id: 3,
+      name: "Pants",
+      price: "450$",
+      color: "red",
+      description: "this is coat"
+    },
+    {
+      id: 4,
+      name: "jacket",
+      price: "180$",
+      color: "red",
+      description: "this is coat"
+    },
+    {
+      id: 5,
+      name: "Shawl",
+      price: "180$",
+      color: "red",
+      description: "this is coat"
+    },
+  ])
 
-  const [headers, setHeaders] = useState({
-    index: "ردیف",
-    firstName: "نام",
-    lastName: "نام خانوادگی",
-    national_id: "کد ملی",
-    age: "سن"
-  });
-
-  return <div>
-    <UsersTable users={users} headers={headers} />
-  </div>;
-};
-
+  return ( 
+    <div>
+      <ProductList products={products} />
+    </div>
+   );
+}
+ 
 export default App;

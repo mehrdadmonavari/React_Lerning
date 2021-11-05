@@ -1,23 +1,13 @@
-import React, { Component } from 'react';
 import Product from "../product/Product";
 
-function ProductList(props) {
-  return (
-    <div>
-      {props.products.map((p, i) => {
-        return (
-          <Product
-            key={p.id}
-            name={p.name}
-            color={p.color}
-            description={p.description}
-            index={i}
-            id={p.id}
-          />
-        );
-      })}
-    </div>
-  );
+const ProductList = (props) => {
+    return ( 
+        <div className="py-4 px-3">
+            {props.products.map((product) => {
+                return <Product key={product.id} product={product} />
+            })}
+        </div>
+     );
 }
-
+ 
 export default ProductList;

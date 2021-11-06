@@ -2,6 +2,7 @@ import { useState } from "react/cjs/react.development";
 import ProductList from "./components/productList/ProductList";
 import ProductHeader from "./components/productHeader/ProductHeader";
 import styles from "./App.module.css";
+import ClassCounter from "./components/classCounter/ClassCounter";
 
 const App = () => {
   const [products, setProducts] = useState([
@@ -77,21 +78,22 @@ const App = () => {
   };
 
   return (
-    <div className="container-fluid">
-      <div className="card m-5">
-        <div className="card-header">
-          <ProductHeader count={products.length} />
-        </div>
-        <div className="card-body">
-          <ProductList
-            products={products}
-            onDelete={deleteHandler}
-            onIncrement={incrementHandler}
-            onDecrement={decrementHandler}
-          />
-        </div>
-      </div>
-    </div>
+    <ClassCounter />
+    // <div className="container-fluid">
+    //   <div className="card m-5">
+    //     <div className="card-header">
+    //       <ProductHeader count={products.length} />
+    //     </div>
+    //     <div className="card-body">
+    //       <ProductList
+    //         products={products}
+    //         onDelete={deleteHandler}
+    //         onIncrement={incrementHandler}
+    //         onDecrement={decrementHandler}
+    //       />
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 

@@ -1,9 +1,11 @@
 import React from "react";
+import ClassTimer from "../classTimer/ClassTimer";
 
 class ClassCounter extends React.Component {
   state = {
     name: "",
     count: 0,
+    showTimer: true,
   };
 
   changeNameHandler = (e) => {
@@ -19,15 +21,9 @@ class ClassCounter extends React.Component {
     });
   };
 
-  componentDidMount() {
-    console.log("this is component did mount");
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.count !== this.state.count) {
-      console.log("this is component did update");
-    }
-  }
+  showTimerHandler = () => {
+    this.setState({ showTimer: !this.state.showTimer });
+  };
 
   render() {
     return (
@@ -41,14 +37,21 @@ class ClassCounter extends React.Component {
           />
         </div>
         <button
-          className="btn btn-outline-primary mt-3"
+          className="btn btn-outline-primary mt-3 mr-3"
           onClick={this.changeCountHandler}
         >
           Increment
         </button>
+        <button
+          className="btn btn-outline-primary mt-3"
+          onClick={this.showTimerHandler}
+        >
+          {this.state.showTimer ? "hide" : "show"}
+        </button>
         <div className="d-flex justify-content-center align-items-center ml-5 mt-3">
           <div className="ml-2">name: {this.state.name}</div>
           <div className="badge-pill badge-info ml-3">{this.state.count}</div>
+          {this.state.showTimer && <ClassTimer />}
         </div>
       </div>
     );

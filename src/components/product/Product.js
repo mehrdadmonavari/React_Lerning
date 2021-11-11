@@ -1,10 +1,9 @@
 import styles from "./Product.module.css";
 import { BiTrash } from "react-icons/bi";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 const Product = (props) => {
   const { id, name, price, color, description, quantity } = props.product;
-
   const decrementView = () => {
     return <span>{quantity === 1 ? <BiTrash className="mb-1" /> : "-"}</span>;
   };

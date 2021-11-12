@@ -1,19 +1,14 @@
-import React, { createContext } from "react";
-import { useState } from "react/cjs/react.development";
+import React, { createContext, useState, useContext } from "react";
 
-export const RandomContext = createContext();
-export const RandomContextDispatch = createContext();
+const RandomContext = createContext();
+const RandomContextDispatch = createContext();
 
 const RandomProvider = ({ children }) => {
   const [random, setRandom] = useState([]);
 
-  const createRandomHandler = () => {
-    const createdRandom = Math.ceil(Math.random() * 10);
-    setRandom([...random, createdRandom]);
-  };
   return (
     <RandomContext.Provider value={random}>
-      <RandomContextDispatch.Provider value={createRandomHandler}>
+      <RandomContextDispatch.Provider value={setRandom}>
         {children}
       </RandomContextDispatch.Provider>
     </RandomContext.Provider>
@@ -21,3 +16,17 @@ const RandomProvider = ({ children }) => {
 };
 
 export default RandomProvider;
+
+export const Random = () => useContext(RandomContext);
+
+export const RandomActions = () => {
+  const random = useContext(RandomContext);
+  const setRandom = useContext(RandomContextDispatch);
+
+  const createRandomHandler = () => {
+    const createdRandom = Math.ceil(Math.random() * 10);
+    setRandom([...random, createdRandom]);
+  };
+
+  return {createRandomHandler};
+};

@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
-import { RandomContext, RandomContextDispatch } from "./RandomProvider";
+import React from "react";
+import { Random, RandomActions } from "./RandomProvider";
 
 const RandomOne = () => {
-  const random = useContext(RandomContext);
-    const onRandom = useContext(RandomContextDispatch);
-
+  const random = Random();
+  const randomActions = RandomActions();
+  console.log(randomActions);
   return (
     <div>
-      <div>random is : {random}</div>
-      <button onClick={onRandom}>create random</button>
+      <div>random is: {random}</div>
+      <button onClick={randomActions.createRandomHandler}>create random</button>
     </div>
   );
 };

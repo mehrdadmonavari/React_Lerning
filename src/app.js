@@ -4,6 +4,7 @@ import ProductHeader from "./components/productHeader/ProductHeader";
 import styles from "./App.module.css";
 import RandomProvider from "./components/randomContext/RandomProvider";
 import RandomOne from "./components/randomContext/RandomOne";
+import CountReducer from "./components/counterContext/CountReducer";
 
 const App = () => {
   const [products, setProducts] = useState([
@@ -79,9 +80,10 @@ const App = () => {
   };
 
   return (
-    <RandomProvider>
-      <RandomOne />
-    </RandomProvider>
+    <CountReducer />
+    // <RandomProvider>
+    //   <RandomOne />
+    // </RandomProvider>
     // <div className="container-fluid">
     //   <div className="card m-5">
     //     <div className="card-header">

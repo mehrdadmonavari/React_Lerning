@@ -5,6 +5,7 @@ import styles from "./App.module.css";
 import RandomProvider from "./components/randomContext/RandomProvider";
 import RandomOne from "./components/randomContext/RandomOne";
 import CountReducer from "./components/counterContext/CountReducer";
+import Count from "./components/counterContext/Count";
 
 const App = () => {
   const [products, setProducts] = useState([
@@ -80,7 +81,7 @@ const App = () => {
   };
 
   return (
-    <CountReducer />
+    <Count />
     // <RandomProvider>
     //   <RandomOne />
     // </RandomProvider>

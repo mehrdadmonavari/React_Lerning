@@ -1,0 +1,42 @@
+export const productsData = [
+  {
+    id: 1,
+    name: "Coat",
+    price: "200$",
+    color: "red",
+    description: "this is coat",
+    quantity: 1,
+  },
+  {
+    id: 2,
+    name: "Hat",
+    price: "300$",
+    color: "red",
+    description: "this is coat",
+    quantity: 1,
+  },
+  {
+    id: 3,
+    name: "Pants",
+    price: "450$",
+    color: "red",
+    description: "this is coat",
+    quantity: 1,
+  },
+  {
+    id: 4,
+    name: "jacket",
+    price: "180$",
+    color: "red",
+    description: "this is coat",
+    quantity: 1,
+  },
+  {
+    id: 5,
+    name: "Shawl",
+    price: "180$",
+    color: "red",
+    description: "this is coat",
+    quantity: 1,
+  },
+];

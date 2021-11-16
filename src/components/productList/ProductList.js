@@ -5,9 +5,16 @@ import {
 } from "../productsProvider/ProductsProvider";
 
 const ProductList = () => {
-    
+
+  /**
+   * Get Products
+   * Get Dispatch Method Of Products
+   */
+
   const products = useProducts();
   const dispatch = useProductsActions();
+
+  /** Return Conponent */
 
   return (
     <div className="py-1 px-1">

@@ -6,6 +6,9 @@ const initialState = productsData;
 
 const reducer = (state, action) => {
   switch (action.type) {
+    //
+    /** increment action */
+
     case "increment": {
       const index = state.findIndex((product) => product.id === action.id);
       const product = { ...state[index] };
@@ -14,6 +17,9 @@ const reducer = (state, action) => {
       products[index] = product;
       return products;
     }
+
+    /** decrement action */
+
     case "decrement": {
       const index = state.findIndex((product) => product.id === action.id);
       const product = { ...state[index] };
@@ -29,12 +35,33 @@ const reducer = (state, action) => {
         return filtredProduct;
       }
     }
+
+    /** delete action */
+
     case "delete": {
       const filtredProduct = state.filter((product) => {
         return product.id !== action.id;
       });
       return filtredProduct;
     }
+
+    /** filter action */
+
+    case "filter": {
+      if (action.event.target.value === "All") {
+        return initialState;
+      } else {
+        const filtredProducts = initialState.filter((product) => {
+          return (
+            product.size.indexOf(action.event.target.value) >= 0 && product
+          );
+        });
+        return filtredProducts;
+      }
+    }
+
+    /** default action */
+
     default:
       return state;
   }

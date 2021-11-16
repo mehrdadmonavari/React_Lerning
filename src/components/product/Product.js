@@ -3,11 +3,17 @@ import { BiTrash } from "react-icons/bi";
 
 const Product = (props) => {
 
-  const { name, price, color, description, quantity } = props.product;
+  /** Props Destructuring */
+
+  const { name, price, color, size, description, quantity } = props.product;
+
+  /** Create Decrement View */
 
   const decrementView = () => {
     return <span>{quantity === 1 ? <BiTrash className="mb-1" /> : "-"}</span>;
   };
+
+  /** Return Component */
 
   return (
     <div className="d-flex justify-content-between p-3 my-2 border rounded-lg">
@@ -21,6 +27,7 @@ const Product = (props) => {
         <h5 className="my-0 ml-3 mr-4">{name}</h5>
         <div className="mx-3">price: {price}</div>
         <div className="mx-3">color: {color}</div>
+        <div className="mx-3">color: {size.toString().replace(/,/g, " , ")}</div>
         <div className="mx-3">description: {description}</div>
       </div>
       <div className="d-flex justify-content-end align-items-center">

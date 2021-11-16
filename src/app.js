@@ -2,6 +2,7 @@ import ProductList from "./components/productList/ProductList";
 import ProductHeader from "./components/productHeader/ProductHeader";
 import ProductsProvider from "./components/productsProvider/ProductsProvider";
 import styles from "./App.module.css";
+import ProductsFilter from "./components/productsFilter/ProductsFilter";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
             <ProductHeader />
           </div>
           <div className="card-body">
+            <ProductsFilter />
             <ProductList />
           </div>
         </div>

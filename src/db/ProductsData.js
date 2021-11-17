@@ -2,7 +2,7 @@ export const productsData = [
   {
     id: 1,
     name: "Coat",
-    price: "200$",
+    price: "200",
     color: "red",
     size: ["M", "L"],
     description: "this is coat",
@@ -11,7 +11,7 @@ export const productsData = [
   {
     id: 2,
     name: "Hat",
-    price: "300$",
+    price: "300",
     color: "orange",
     size: ["M", "L", "XXL"],
     description: "this is hat",
@@ -20,7 +20,7 @@ export const productsData = [
   {
     id: 3,
     name: "Pants",
-    price: "450$",
+    price: "450",
     color: "black",
     size: ["L", "XL", "XXL"],
     description: "this is pants",
@@ -29,7 +29,7 @@ export const productsData = [
   {
     id: 4,
     name: "Jacket",
-    price: "180$",
+    price: "180",
     color: "yellow",
     size: ["M", "XL", "XXL"],
     description: "this is jacket",
@@ -38,7 +38,7 @@ export const productsData = [
   {
     id: 5,
     name: "Shawl",
-    price: "180$",
+    price: "180",
     color: "blue",
     size: ["L"],
     description: "this is shawl",
@@ -47,7 +47,7 @@ export const productsData = [
   {
     id: 6,
     name: "Gloves",
-    price: "67$",
+    price: "67",
     color: "pinck",
     size: ["XL"],
     description: "this is gloves",
@@ -56,7 +56,7 @@ export const productsData = [
   {
     id: 7,
     name: "Shirt",
-    price: "115$",
+    price: "115",
     color: "sky blue",
     size: ["M"],
     description: "this is shirt",

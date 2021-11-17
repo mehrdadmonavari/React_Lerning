@@ -25,9 +25,9 @@ const Product = (props) => {
       >
         <div className={styles.f_16 + " font-weight-bold"}>{props.index} .</div>
         <h5 className="my-0 ml-3 mr-4">{name}</h5>
-        <div className="mx-3">price: {price}</div>
+        <div className="mx-3">price: {price}$</div>
         <div className="mx-3">color: {color}</div>
-        <div className="mx-3">color: {size.toString().replace(/,/g, " , ")}</div>
+        <div className="mx-3">size: {size.toString().replace(/,/g, " , ")}</div>
         <div className="mx-3">description: {description}</div>
       </div>
       <div className="d-flex justify-content-end align-items-center">

@@ -48,15 +48,38 @@ const reducer = (state, action) => {
     /** filter action */
 
     case "filter": {
-      if (action.event.target.value === "All") {
+      const value = action.event.target.value;
+      if (value === "All") {
         return initialState;
       } else {
         const filtredProducts = initialState.filter((product) => {
-          return (
-            product.size.indexOf(action.event.target.value) >= 0 && product
-          );
+          return product.size.indexOf(value) >= 0 && product;
         });
         return filtredProducts;
+      }
+    }
+
+    case "sort": {
+      const value = action.event.target.value;
+      const products = [...state];
+      switch (value) {
+        case "Highest": {
+          const sortedProducts = products.sort((a, b) => {
+            return b.price - a.price;
+          });
+          console.log(sortedProducts);
+          return sortedProducts;
+        }
+        case "Lowest": {
+          const sortedProducts = products.sort((a, b) => {
+            return a.price - b.price;
+          });
+          console.log(sortedProducts);
+          return sortedProducts;
+        }
+        default: {
+          return state;
+        }
       }
     }
 

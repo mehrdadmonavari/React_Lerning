@@ -62,4 +62,13 @@ export const productsData = [
     description: "this is shirt",
     quantity: 1,
   },
+  {
+    id: 8,
+    name: "Socks",
+    price: "80",
+    color: "black",
+    size: ["M"],
+    description: "this is سocks",
+    quantity: 1,
+  },
 ];
